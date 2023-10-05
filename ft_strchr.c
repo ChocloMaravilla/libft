@@ -14,39 +14,30 @@
 
 char *ft_strchr(const char *s, int c)
 {
+	size_t count;
 
-	char *b;
-	int count;
-	size_t len;
-	size_t lenC;
-
-	lenC = (size_t)c;
-	len = ft_strlen(s);
+	c = (char)c;
 	count = 0;
-	b = (char *)s;
-	if(!s || !c || lenC > len || lenC < len )
-		return NULL;
-	while(s != '\0')
+	while(s[count])
 	{
-		if(b == NULL)
-		{
-			return NULL;
-		}
+		if(s[count] == c)
+			return (char *)(s + count);
 		count++;
 	}
-	return b;
+	if (!c)
+		return (char *)(s + count);
+	return NULL;
 }
+/*
 int main()
 {	
-	char *a;
+	char a[7] = "holaaa";
 	char b;
 	char *c;
 
-	a = "holaaa";
 	b = 'l';
 	c = a;
 
-	ft_strchr(c, b);
-	printf("%s", a);
+	printf("%s", ft_strchr(c, b));
 	return 0;
-}
+}*/
