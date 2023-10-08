@@ -1,5 +1,6 @@
 .PHONY: clean all fclean re
 NAME = libft.a
+HEADER = libft.h
 OBJS = $(SOURCES:.c=.o)
 CFLAGS = -Wall -Wextra -Werror -I.
 CC = cc
@@ -18,14 +19,15 @@ SOURCES = ft_isalpha.c \
 	 ft_toupper.c \
 	 ft_tolower.c \
 	 ft_strchr.c \
-	 ft_strrchr.c
+	 ft_strrchr.c \
+	 ft_strncmp.c
 
 all : $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) $(HEADER)
 	@ar rcs $(NAME) $(OBJS)&&ls
 
-%.o : %.c 
+%.o : %.c Makefile $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean :
