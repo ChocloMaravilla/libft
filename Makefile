@@ -23,7 +23,9 @@ SOURCES = ft_isalpha.c \
 	 ft_memchr.c \
 	 ft_memcmp.c \
 	 ft_strnstr.c \
-	 ft_atoi.c
+	 ft_atoi.c \
+	 ft_calloc.c \
+	 ft_strdup.c
 all : $(NAME)
 
 $(NAME): $(OBJS) 
