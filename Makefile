@@ -39,7 +39,7 @@ all : $(NAME)
 $(NAME): $(OBJS) 
 	@ar rcs $(NAME) $(OBJS)&&ls
 
-%.o : %.c Makefile 
+%.o : %.c libft.h Makefile 
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean :
