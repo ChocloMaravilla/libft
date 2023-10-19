@@ -1,53 +1,63 @@
-.PHONY: clean all fclean re
-NAME = libft.a
-OBJS = $(SOURCES:.c=.o)
-CFLAGS = -Wall -Wextra -Werror -I.
-CC = cc
-SOURCES = ft_isalpha.c \
-	 ft_isdigit.c \
-	 ft_isalnum.c \
-	 ft_isascii.c \
-	 ft_isprint.c \
-	 ft_strlen.c \
-	 ft_memset.c \
-	 ft_bzero.c \
-	 ft_memcpy.c \
-	 ft_memmove.c \
-	 ft_strlcpy.c \
-	 ft_strlcat.c \
-	 ft_toupper.c \
-	 ft_tolower.c \
-	 ft_strchr.c \
-	 ft_strrchr.c \
-	 ft_strncmp.c \
-	 ft_memchr.c \
-	 ft_memcmp.c \
-	 ft_strnstr.c \
-	 ft_atoi.c \
-	 ft_calloc.c \
-	 ft_strdup.c \
-	 ft_substr.c \
-	 ft_strjoin.c \
-	 ft_strtrim.c \
-	 ft_strmapi.c \
-	 ft_striteri.c \
-	 ft_putchar_fd.c \
-	 ft_putstr_fd.c \
-	 ft_putendl_fd.c
-all : $(NAME)
+HEADER	=	libft.h
 
-$(NAME): $(OBJS) 
-	@ar rcs $(NAME) $(OBJS)&&ls
+NAME	=	libft.a
 
-%.o : %.c libft.h Makefile 
-	$(CC) $(CFLAGS) -c $< -o $@
+SRCS	=	ft_atoi.c \
+			ft_isdigit.c \
+			ft_isalpha.c \
+			ft_isalnum.c \
+			ft_isascii.c \
+			ft_isprint.c \
+			ft_strlen.c \
+			ft_memset.c \
+			ft_bzero.c \
+			ft_memcpy.c	\
+			ft_memmove.c \
+			ft_strlcpy.c \
+			ft_strlcat.c \
+			ft_toupper.c \
+			ft_tolower.c \
+			ft_memchr.c \
+			ft_strchr.c \
+			ft_strrchr.c \
+			ft_strncmp.c \
+			ft_memcmp.c \
+			ft_strnstr.c \
+			ft_calloc.c \
+			ft_strdup.c \
+			ft_substr.c \
+			ft_strjoin.c \
+			ft_strtrim.c \
+			ft_strmapi.c \
+			ft_striteri.c \
+			ft_putchar_fd.c \
+			ft_putstr_fd.c \
+			ft_putendl_fd.c \
+			ft_putnbr_fd.c 
+			
+OBJS	=	$(SRCS:.c=.o)
+CC	= 	gcc
+RM	= 	rm -f
+LIBC	= 	ar -rcs
+FLAGS	= 	-Wall -Wextra -Werror
 
-clean :
-	@rm -r $(OBJS)&&ls
+%.o:%.c Makefile ${HEADER}
+	${CC} ${FLAGS} -c $< -o $@
 
-fclean : clean
-	@rm -rf $(OBJS) $(NAME)&&ls
+$(NAME):: ${OBJS} ${HEADER} 
+	$(LIBC) $(NAME) $(OBJS)
 
-re:
-	@$(MAKE) fclean
-	@$(MAKE) all
+all: $(NAME)
+
+# bonus:	$(NAME) $(HEADER)
+# 	$(LIBC) $(NAME)
+
+fclean: clean
+	$(RM) $(NAME)
+
+clean:
+	$(RM) $(OBJS)
+
+re: fclean all
+
+.PHONY: all clean fclean re
