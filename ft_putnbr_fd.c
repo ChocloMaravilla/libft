@@ -42,5 +42,5 @@ void	ft_putnbr_fd(int n, int fd)
 //     n = 1997;
 //     fd = 1;
 //     ft_putnbr_fd(fd, n);
-//     return 0;
+//     return (0);
 // }

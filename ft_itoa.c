@@ -6,66 +6,69 @@
 /*   By: ruben <ruben@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 20:12:50 by ruben             #+#    #+#             */
-/*   Updated: 2023/10/22 01:12:53 by ruben            ###   ########.fr       */
+/*   Updated: 2023/10/22 15:54:36 by rmedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_itoa(int n)
+static int	calc_size(int n, int *negative)
 {
-    char *a;
-    int i;
-    int aux;
+	int	count;
 
-    aux = n;
-    a_function(n, aux);
-    a = (char *)malloc((i + 1) * sizeof(char));
-    if(!a)
-        return 0; 
-    if (aux < 0)
-    {
-        a[0] = '-';
-        aux *= -1;
-        n = 1;
-    }
-    a[i] = '\0';  
-  
-    while(i > n)
-    {
-        i--;
-        if(aux > 0)
-        {
-            a[i] = (aux % 10) + '0';
-            aux = aux / 10;
-        }
-        else
-        {
-            a[i] = (aux % 10 * -1) + '0';
-            aux = aux / 10;
-        }
-        
-    }
-    return a; 
+	count = 0;
+	*negative = n < 0;
+	if (*negative)
+	{
+		n *= -1;
+		count++;
+	}
+	while (n > 0)
+	{
+		n /= 10;
+		count++;
+	}
+	return (count);
 }
-int a_function(int n, int aux)
+
+static void	write_num(char *a, int n, int negative, int size)
 {
-    int i;
+	int	i;
+	int	min;
 
-    i = 0; 
-    if(n == 0)
-        return ("0");
-    while(n != 0)
-    {
-        n = n / 10;
-        i++;
-    }
-    if (aux < 0)
-        i++;
-    return i;
+	i = size - 1;
+	min = 0;
+	if (negative)
+	{
+		a[0] = '-';
+		n *= -1;
+		min = 1;
+	}
+	a[size] = '\0';
+	while (i >= min)
+	{
+		a[i] = (n % 10) + '0';
+		n /= 10;
+		i--;
+	}
 }
-// int main()
-// {
-//     int n = -2147483648;
-//     return 0;
-// }
+
+char	*ft_itoa(int n)
+{
+	char	*a;
+	int		size;
+	int		i;
+	int		negative;
+
+	i = 0;
+	if (n == 0)
+		return (ft_strdup("0"));
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	size = calc_size(n, &negative);
+	a = (char *)malloc(size + 1);
+	if (!a)
+		return (0);
+	write_num(a, n, negative, size);
+	return (a);
+}

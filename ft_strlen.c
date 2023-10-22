@@ -6,7 +6,7 @@
 /*   By: rmedina- <rmedina-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 11:54:20 by rmedina-          #+#    #+#             */
-/*   Updated: 2023/09/24 12:12:35 by rmedina-         ###   ########.fr       */
+/*   Updated: 2023/10/22 15:12:44 by rmedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlen(const char *c)
 {
-	size_t		a;
+	size_t	a;
 	char	*b;
 
 	b = (char *)c;
