@@ -37,7 +37,9 @@ SRCS	=	ft_atoi.c \
 			ft_itoa.c \
 			ft_split.c
 
+SRCS_BONUS	=	
 OBJS	=	$(SRCS:.c=.o)
+OBJS_BONUS	=	$(SRCS_BONUS:.c=.o)
 CC	= 	gcc
 RM	= 	rm -f
 LIBC	= 	ar -rcs
@@ -50,9 +52,6 @@ $(NAME):: ${OBJS} ${HEADER}
 	$(LIBC) $(NAME) $(OBJS)
 
 all: $(NAME)
-
-# bonus:	$(NAME) $(HEADER)
-# 	$(LIBC) $(NAME)
 
 fclean: clean
 	$(RM) $(NAME)

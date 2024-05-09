@@ -6,7 +6,7 @@
 /*   By: rmedina- <rmedina-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 15:32:15 by rmedina-          #+#    #+#             */
-/*   Updated: 2023/10/22 15:33:52 by rmedina-         ###   ########.fr       */
+/*   Updated: 2024/05/09 13:05:47 by rmedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+typedef struct	s_list
+{
+	void			*content;
+	struct s_list	*next;
+}					t_list;
 
 void	ft_bzero(void *s, size_t n);
 int		ft_isalnum(int c);
@@ -52,4 +58,6 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 char	*ft_itoa(int n);
 char	**ft_split(char const *s, char c);
+
+t_list *ft_lstnew(void *content);
 #endif

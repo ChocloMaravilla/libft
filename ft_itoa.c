@@ -6,7 +6,7 @@
 /*   By: ruben <ruben@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 20:12:50 by ruben             #+#    #+#             */
-/*   Updated: 2023/10/22 15:54:36 by rmedina-         ###   ########.fr       */
+/*   Updated: 2023/10/23 14:49:05 by rmedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,8 @@ char	*ft_itoa(int n)
 {
 	char	*a;
 	int		size;
-	int		i;
 	int		negative;
 
-	i = 0;
 	if (n == 0)
 		return (ft_strdup("0"));
 	if (n == -2147483648)
