@@ -6,7 +6,7 @@
 /*   By: rmedina- <rmedina-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 12:15:00 by rmedina-          #+#    #+#             */
-/*   Updated: 2024/05/14 13:39:40 by rmedina-         ###   ########.fr       */
+/*   Updated: 2024/05/14 15:19:47 by rmedina-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
 	if (!lst || !del)
-		return (NULL);
+		return ;
 	del(lst->content);
 	free(lst);
 }
