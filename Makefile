@@ -59,13 +59,14 @@ $(NAME):: ${OBJS}
 
 bonus: ${NAME} ${OBJS_BONUS}
 	ar -rcs $(NAME) $(OBJS_BONUS)
+	touch bonus
 
 clean:
-	rm -f $(OBJS) $(OBJS_BONUS)
+	rm -f $(OBJS) $(OBJS_BONUS) bonus
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re
