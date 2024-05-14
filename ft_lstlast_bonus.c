@@ -1,10 +1,23 @@
-# include "libft.h"
-t_list *ft_lstlast(t_list *lst)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rmedina- <rmedina-@student.42barcel>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/14 13:20:53 by rmedina-          #+#    #+#             */
+/*   Updated: 2024/05/14 13:26:24 by rmedina-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+t_list	*ft_lstlast(t_list *lst)
 {
-	while(lst->next)
-	{
+	if (!lst)
+		return (NULL);
+	while (lst->next)
 		lst = lst->next;
-	}
 	return (lst);
 }
 /*
